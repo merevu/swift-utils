@@ -4,13 +4,11 @@ import os
 import re
 import sqlite3
 import json
-# from StringIO import StringIO
 
-# from swift.cli.info import print_info, InfoSystemExit
 from swift.account.backend import AccountBroker
 
 
-class AccountUtil:
+class Accountlist:
     def __init__(self):
         self.device = '/srv/node'
 
@@ -65,7 +63,6 @@ class AccountUtil:
                         if 'no such table' in str(err):
                             print "Does not appear to be a DB of type \"%s\": %s" % (
                                 db_type, db_file)
-                            # raise InfoSystemExit()
                             raise
                         raise
         result =  "{" + (",".join(result)) + "}"
@@ -73,5 +70,5 @@ class AccountUtil:
 
 
 if __name__ == '__main__':
-    accUtil = AccountUtil()
-    accUtil.main()
+    proc = Accountlist()
+    proc.main()
